@@ -1,0 +1,673 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>final_proj_model module &mdash; Text Analytics Using Advanced Python 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="text_prep_func module" href="text_prep_func.html" />
+    <link rel="prev" title="Welcome to Text Analytics Using Advanced Python’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Text Analytics Using Advanced Python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">final_proj_model module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="text_prep_func.html">text_prep_func module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word_dic.html">word_dic module</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">final_proj_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text_prep_func.html">text_prep_func module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="word_dic.html">word_dic module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Text Analytics Using Advanced Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>final_proj_model module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/final_proj_model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-final_proj_model">
+<span id="final-proj-model-module"></span><h1>final_proj_model module<a class="headerlink" href="#module-final_proj_model" title="Permalink to this headline">¶</a></h1>
+<p>&#64;author: nikshah
+luigi main</p>
+<dl class="py class">
+<dt id="final_proj_model.concat_transcript">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">final_proj_model.</span></code><code class="sig-name descname"><span class="pre">concat_transcript</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.concat_transcript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">luigi.task.ExternalTask</span></code></p>
+<p>This class is a luigi task that does some prep work with loaded data and makes it ready for normalization
+requires: blended parquet file from data load task
+output: cleaned parquet file</p>
+<dl class="py attribute">
+<dt id="final_proj_model.concat_transcript.capture_output">
+<code class="sig-name descname"><span class="pre">capture_output</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.BoolParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.concat_transcript.capture_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.concat_transcript.clone_parent">
+<code class="sig-name descname"><span class="pre">clone_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.concat_transcript.clone_parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.concat_transcript.clone_parents">
+<code class="sig-name descname"><span class="pre">clone_parents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.concat_transcript.clone_parents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.concat_transcript.output">
+<code class="sig-name descname"><span class="pre">output</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.concat_transcript.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>The output that this Task produces.</p>
+<p>The output of the Task determines if the Task needs to be run–the task
+is considered finished iff the outputs all exist. Subclasses should
+override this method to return a single <code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> or a list of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> instances.</p>
+<dl class="simple">
+<dt>Implementation note</dt><dd><p>If running multiple workers, the output must be a resource that is accessible
+by all workers, such as a DFS or database. Otherwise, workers might compute
+the same output since they don’t see the work done by other workers.</p>
+</dd>
+</dl>
+<p>See <span class="xref std std-ref">Task.output</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.concat_transcript.requires">
+<code class="sig-name descname"><span class="pre">requires</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.concat_transcript.requires" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Tasks that this Task depends on.</p>
+<p>A Task will only run if all of the Tasks that it requires are completed.
+If your Task does not require any other Tasks, then you don’t need to
+override this method. Otherwise, a subclass can override this method
+to return a single Task, a list of Task instances, or a dict whose
+values are Task instances.</p>
+<p>See <span class="xref std std-ref">Task.requires</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.concat_transcript.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.concat_transcript.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>The task run method, to be overridden in a subclass.</p>
+<p>See <span class="xref std std-ref">Task.run</span></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.concat_transcript.stream_for_searching_tracking_url">
+<code class="sig-name descname"><span class="pre">stream_for_searching_tracking_url</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.ChoiceParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.concat_transcript.stream_for_searching_tracking_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.concat_transcript.tracking_url_pattern">
+<code class="sig-name descname"><span class="pre">tracking_url_pattern</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.OptionalParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.concat_transcript.tracking_url_pattern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="final_proj_model.dask_norm">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">final_proj_model.</span></code><code class="sig-name descname"><span class="pre">dask_norm</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.dask_norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">luigi.task.Task</span></code></p>
+<p>This is a luigi task which kicks off a local cluster and normalizes transcripts</p>
+<dl class="py attribute">
+<dt id="final_proj_model.dask_norm.capture_output">
+<code class="sig-name descname"><span class="pre">capture_output</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.BoolParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.dask_norm.capture_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.dask_norm.clone_parent">
+<code class="sig-name descname"><span class="pre">clone_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.dask_norm.clone_parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.dask_norm.clone_parents">
+<code class="sig-name descname"><span class="pre">clone_parents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.dask_norm.clone_parents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.dask_norm.output">
+<code class="sig-name descname"><span class="pre">output</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.dask_norm.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>The output that this Task produces.</p>
+<p>The output of the Task determines if the Task needs to be run–the task
+is considered finished iff the outputs all exist. Subclasses should
+override this method to return a single <code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> or a list of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> instances.</p>
+<dl class="simple">
+<dt>Implementation note</dt><dd><p>If running multiple workers, the output must be a resource that is accessible
+by all workers, such as a DFS or database. Otherwise, workers might compute
+the same output since they don’t see the work done by other workers.</p>
+</dd>
+</dl>
+<p>See <span class="xref std std-ref">Task.output</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.dask_norm.requires">
+<code class="sig-name descname"><span class="pre">requires</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.dask_norm.requires" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Tasks that this Task depends on.</p>
+<p>A Task will only run if all of the Tasks that it requires are completed.
+If your Task does not require any other Tasks, then you don’t need to
+override this method. Otherwise, a subclass can override this method
+to return a single Task, a list of Task instances, or a dict whose
+values are Task instances.</p>
+<p>See <span class="xref std std-ref">Task.requires</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.dask_norm.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.dask_norm.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>The task run method, to be overridden in a subclass.</p>
+<p>See <span class="xref std std-ref">Task.run</span></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.dask_norm.stream_for_searching_tracking_url">
+<code class="sig-name descname"><span class="pre">stream_for_searching_tracking_url</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.ChoiceParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.dask_norm.stream_for_searching_tracking_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.dask_norm.tracking_url_pattern">
+<code class="sig-name descname"><span class="pre">tracking_url_pattern</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.OptionalParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.dask_norm.tracking_url_pattern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="final_proj_model.data_load">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">final_proj_model.</span></code><code class="sig-name descname"><span class="pre">data_load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.data_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">luigi.contrib.external_program.ExternalProgramTask</span></code></p>
+<p>This function is a luigi external program task which loads data from API and from our internal databases
+requires: Three tasks one for API load and 2 for loading data from the internal databases
+output: parquet file for the blended data from all three sources</p>
+<dl class="py method">
+<dt id="final_proj_model.data_load.output">
+<code class="sig-name descname"><span class="pre">output</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.data_load.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>The output that this Task produces.</p>
+<p>The output of the Task determines if the Task needs to be run–the task
+is considered finished iff the outputs all exist. Subclasses should
+override this method to return a single <code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> or a list of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> instances.</p>
+<dl class="simple">
+<dt>Implementation note</dt><dd><p>If running multiple workers, the output must be a resource that is accessible
+by all workers, such as a DFS or database. Otherwise, workers might compute
+the same output since they don’t see the work done by other workers.</p>
+</dd>
+</dl>
+<p>See <span class="xref std std-ref">Task.output</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.data_load.program_args">
+<code class="sig-name descname"><span class="pre">program_args</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.data_load.program_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to map your task parameters to the program arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list to pass as <code class="docutils literal notranslate"><span class="pre">args</span></code> to <code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.data_load.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.data_load.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>The task run method, to be overridden in a subclass.</p>
+<p>See <span class="xref std std-ref">Task.run</span></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="final_proj_model.filter_unqualified_call">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">final_proj_model.</span></code><code class="sig-name descname"><span class="pre">filter_unqualified_call</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.filter_unqualified_call" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">luigi.task.Task</span></code></p>
+<p>This task based on some internal logic that filters out unqualified calls</p>
+<dl class="py attribute">
+<dt id="final_proj_model.filter_unqualified_call.capture_output">
+<code class="sig-name descname"><span class="pre">capture_output</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.BoolParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.filter_unqualified_call.capture_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.filter_unqualified_call.clone_parent">
+<code class="sig-name descname"><span class="pre">clone_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.filter_unqualified_call.clone_parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.filter_unqualified_call.clone_parents">
+<code class="sig-name descname"><span class="pre">clone_parents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.filter_unqualified_call.clone_parents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.filter_unqualified_call.output">
+<code class="sig-name descname"><span class="pre">output</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.filter_unqualified_call.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>The output that this Task produces.</p>
+<p>The output of the Task determines if the Task needs to be run–the task
+is considered finished iff the outputs all exist. Subclasses should
+override this method to return a single <code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> or a list of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> instances.</p>
+<dl class="simple">
+<dt>Implementation note</dt><dd><p>If running multiple workers, the output must be a resource that is accessible
+by all workers, such as a DFS or database. Otherwise, workers might compute
+the same output since they don’t see the work done by other workers.</p>
+</dd>
+</dl>
+<p>See <span class="xref std std-ref">Task.output</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.filter_unqualified_call.requires">
+<code class="sig-name descname"><span class="pre">requires</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.filter_unqualified_call.requires" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Tasks that this Task depends on.</p>
+<p>A Task will only run if all of the Tasks that it requires are completed.
+If your Task does not require any other Tasks, then you don’t need to
+override this method. Otherwise, a subclass can override this method
+to return a single Task, a list of Task instances, or a dict whose
+values are Task instances.</p>
+<p>See <span class="xref std std-ref">Task.requires</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.filter_unqualified_call.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.filter_unqualified_call.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>The task run method, to be overridden in a subclass.</p>
+<p>See <span class="xref std std-ref">Task.run</span></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.filter_unqualified_call.stream_for_searching_tracking_url">
+<code class="sig-name descname"><span class="pre">stream_for_searching_tracking_url</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.ChoiceParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.filter_unqualified_call.stream_for_searching_tracking_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.filter_unqualified_call.tracking_url_pattern">
+<code class="sig-name descname"><span class="pre">tracking_url_pattern</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.OptionalParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.filter_unqualified_call.tracking_url_pattern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="final_proj_model.model_train">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">final_proj_model.</span></code><code class="sig-name descname"><span class="pre">model_train</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">luigi.task.Task</span></code></p>
+<p>This task train topic model and generates and store out in a pickle file</p>
+<dl class="py attribute">
+<dt id="final_proj_model.model_train.capture_output">
+<code class="sig-name descname"><span class="pre">capture_output</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.BoolParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.model_train.capture_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.model_train.clone_parent">
+<code class="sig-name descname"><span class="pre">clone_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_train.clone_parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.model_train.clone_parents">
+<code class="sig-name descname"><span class="pre">clone_parents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_train.clone_parents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.model_train.output">
+<code class="sig-name descname"><span class="pre">output</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_train.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>The output that this Task produces.</p>
+<p>The output of the Task determines if the Task needs to be run–the task
+is considered finished iff the outputs all exist. Subclasses should
+override this method to return a single <code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> or a list of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> instances.</p>
+<dl class="simple">
+<dt>Implementation note</dt><dd><p>If running multiple workers, the output must be a resource that is accessible
+by all workers, such as a DFS or database. Otherwise, workers might compute
+the same output since they don’t see the work done by other workers.</p>
+</dd>
+</dl>
+<p>See <span class="xref std std-ref">Task.output</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.model_train.requires">
+<code class="sig-name descname"><span class="pre">requires</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_train.requires" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Tasks that this Task depends on.</p>
+<p>A Task will only run if all of the Tasks that it requires are completed.
+If your Task does not require any other Tasks, then you don’t need to
+override this method. Otherwise, a subclass can override this method
+to return a single Task, a list of Task instances, or a dict whose
+values are Task instances.</p>
+<p>See <span class="xref std std-ref">Task.requires</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.model_train.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_train.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>The task run method, to be overridden in a subclass.</p>
+<p>See <span class="xref std std-ref">Task.run</span></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.model_train.stream_for_searching_tracking_url">
+<code class="sig-name descname"><span class="pre">stream_for_searching_tracking_url</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.ChoiceParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.model_train.stream_for_searching_tracking_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.model_train.tracking_url_pattern">
+<code class="sig-name descname"><span class="pre">tracking_url_pattern</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.OptionalParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.model_train.tracking_url_pattern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="final_proj_model.model_viz">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">final_proj_model.</span></code><code class="sig-name descname"><span class="pre">model_viz</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_viz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">luigi.task.Task</span></code></p>
+<p>This task generates model vizualization</p>
+<dl class="py attribute">
+<dt id="final_proj_model.model_viz.capture_output">
+<code class="sig-name descname"><span class="pre">capture_output</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.BoolParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.model_viz.capture_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.model_viz.clone_parent">
+<code class="sig-name descname"><span class="pre">clone_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_viz.clone_parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.model_viz.clone_parents">
+<code class="sig-name descname"><span class="pre">clone_parents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_viz.clone_parents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.model_viz.output">
+<code class="sig-name descname"><span class="pre">output</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_viz.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>The output that this Task produces.</p>
+<p>The output of the Task determines if the Task needs to be run–the task
+is considered finished iff the outputs all exist. Subclasses should
+override this method to return a single <code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> or a list of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> instances.</p>
+<dl class="simple">
+<dt>Implementation note</dt><dd><p>If running multiple workers, the output must be a resource that is accessible
+by all workers, such as a DFS or database. Otherwise, workers might compute
+the same output since they don’t see the work done by other workers.</p>
+</dd>
+</dl>
+<p>See <span class="xref std std-ref">Task.output</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.model_viz.requires">
+<code class="sig-name descname"><span class="pre">requires</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_viz.requires" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Tasks that this Task depends on.</p>
+<p>A Task will only run if all of the Tasks that it requires are completed.
+If your Task does not require any other Tasks, then you don’t need to
+override this method. Otherwise, a subclass can override this method
+to return a single Task, a list of Task instances, or a dict whose
+values are Task instances.</p>
+<p>See <span class="xref std std-ref">Task.requires</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.model_viz.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.model_viz.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>The task run method, to be overridden in a subclass.</p>
+<p>See <span class="xref std std-ref">Task.run</span></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.model_viz.stream_for_searching_tracking_url">
+<code class="sig-name descname"><span class="pre">stream_for_searching_tracking_url</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.ChoiceParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.model_viz.stream_for_searching_tracking_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.model_viz.tracking_url_pattern">
+<code class="sig-name descname"><span class="pre">tracking_url_pattern</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.OptionalParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.model_viz.tracking_url_pattern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="final_proj_model.word_matrix">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">final_proj_model.</span></code><code class="sig-name descname"><span class="pre">word_matrix</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.word_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">luigi.task.Task</span></code></p>
+<p>This task creates topic word matrix</p>
+<dl class="py attribute">
+<dt id="final_proj_model.word_matrix.capture_output">
+<code class="sig-name descname"><span class="pre">capture_output</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.BoolParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.word_matrix.capture_output" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.word_matrix.clone_parent">
+<code class="sig-name descname"><span class="pre">clone_parent</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.word_matrix.clone_parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.word_matrix.clone_parents">
+<code class="sig-name descname"><span class="pre">clone_parents</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.word_matrix.clone_parents" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.word_matrix.output">
+<code class="sig-name descname"><span class="pre">output</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.word_matrix.output" title="Permalink to this definition">¶</a></dt>
+<dd><p>The output that this Task produces.</p>
+<p>The output of the Task determines if the Task needs to be run–the task
+is considered finished iff the outputs all exist. Subclasses should
+override this method to return a single <code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> or a list of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">Target</span></code> instances.</p>
+<dl class="simple">
+<dt>Implementation note</dt><dd><p>If running multiple workers, the output must be a resource that is accessible
+by all workers, such as a DFS or database. Otherwise, workers might compute
+the same output since they don’t see the work done by other workers.</p>
+</dd>
+</dl>
+<p>See <span class="xref std std-ref">Task.output</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.word_matrix.requires">
+<code class="sig-name descname"><span class="pre">requires</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.word_matrix.requires" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Tasks that this Task depends on.</p>
+<p>A Task will only run if all of the Tasks that it requires are completed.
+If your Task does not require any other Tasks, then you don’t need to
+override this method. Otherwise, a subclass can override this method
+to return a single Task, a list of Task instances, or a dict whose
+values are Task instances.</p>
+<p>See <span class="xref std std-ref">Task.requires</span></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="final_proj_model.word_matrix.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#final_proj_model.word_matrix.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>The task run method, to be overridden in a subclass.</p>
+<p>See <span class="xref std std-ref">Task.run</span></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.word_matrix.stream_for_searching_tracking_url">
+<code class="sig-name descname"><span class="pre">stream_for_searching_tracking_url</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.ChoiceParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.word_matrix.stream_for_searching_tracking_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="final_proj_model.word_matrix.tracking_url_pattern">
+<code class="sig-name descname"><span class="pre">tracking_url_pattern</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;luigi.parameter.OptionalParameter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#final_proj_model.word_matrix.tracking_url_pattern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="text_prep_func.html" class="btn btn-neutral float-right" title="text_prep_func module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Text Analytics Using Advanced Python’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Nikhar Shah.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Welcome to Text Analytics Using Advanced Python’s documentation! &mdash; Text Analytics Using Advanced Python 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> Text Analytics Using Advanced Python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Text Analytics Using Advanced Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Welcome to Text Analytics Using Advanced Python’s documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-text-analytics-using-advanced-python-s-documentation">
+<h1>Welcome to Text Analytics Using Advanced Python’s documentation!<a class="headerlink" href="#welcome-to-text-analytics-using-advanced-python-s-documentation" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="abstract">
+<h1>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h1>
+<p>In this project I built a text analytics pipeline to efficiently process call transcript data on the local computer
+system using dask inside luigi tasks. The purpose of this document is the technical specification and description of the
+tool. Please note that this is not a user manual. This is an internal project of Mercedes-Benz Financial Service therefore
+source code will not be part of this documentation.</p>
+<p>To advanced python developer faster processing of data, which is the heart of the project, is a challenging task.
+Besides the importance of good performance for large sets of data, there has
+to be a flexible handling for file types and generating accurate model output that truely depicts reality on ground.
+Distributing data processing to multiple cores of the machines has to be as smooth as possible. In order to modularize the code
+we also need to robust pipeline that generally never fails and in rare event where it fails it
+should start from where it left.</p>
+<p>After reading this document you will know what design languages were used in implementing this pipeline and how it was developed.</p>
+</div>
+<div class="section" id="motivation">
+<h1>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h1>
+<p>In the customer obsession age we live in, the skill to predict customer needs in a fast and accurate
+manner has become crucial to most businesses. However, while
+customer focus products has become a matter of course, finding the right level of support and
+anticipate customer needs still prove to be a day to day challenge.</p>
+<p>A customer’s experience is very much a qualitative and emotion based experience. We are trying to turn this
+into a quantitative measure. Whether it is Sentiment Score or Customer Satisfaction Score, we want to track a number.</p>
+<p>Many businesses solely rely on this scoring system as they simply do not have time to do a more thorough analysis of the
+feedback they are getting. That is where text analytics enters and creates the potential to gather insights
+from millions of customer calls.</p>
+<p>Any business that wants to provide a superior customer experience needs to utilise text analytics for mining voice of the
+customer feedback and complaints. If you are not regularly assessing the qualitative data of what people like
+or don’t like about your service then you will struggle to deliver that superior experience.</p>
+<p>Text analytics models can turn the unstructured thoughts of customers into more structured data that can be
+utilised by business. Without text analytics, it would take a huge amount of time and resources to analyse and
+classify this data, never mind start to detect and score emotion sentiment.</p>
+<p>Text analytics is truly capable of capturing the voice of the customer, finally allowing respondents to provide
+feedback on their terms in their own voice, rather than simply selecting from a range of pre-set options.</p>
+</div>
+<div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>In 2020, Mercedes-Benz USA call centers handled 1.5 million inbound customer service calls. The company
+wanted to utilize this data to understand the need of our customers. My team created a topic model that
+analyzes transcripts and classifies them into a cluster of words associated with business processes. It serves the
+purpose for a training team but has some shortcomings like:</p>
+<ul class="simple">
+<li><p>Memory error for training data of more than 60000 transcripts</p></li>
+<li><p>Lack CI/CD process making version controlling difficult</p></li>
+<li><p>Procedural pattern of code writing making code slow and inefficient (training time 2.5 hrs for one month of calls)</p></li>
+<li><p>Due to procedural design pattern it is difficult to modularize the code and thus DAG workflow is absent</p></li>
+<li><p>Model does not have an intuitive UI</p></li>
+</ul>
+<p>Goal of this project is utilizing advanced python techniques to create a text analytics product capable of
+analyzing large dataset locally and give insights on customer pain points.</p>
+</div>
+<div class="section" id="problem-scope">
+<h1>Problem Scope<a class="headerlink" href="#problem-scope" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Here is a snippet of code which represents part of bottle neck in our old method:</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/procedural1.png" src="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/procedural1.png" />
+</div>
+<p>Here we see how normalization is happening over loop, it inefficient to apply loop with compute intensive operations.
+We also see after every transcript normalization we append it to a separate list, which makes whole process slow.</p>
+<ul class="simple">
+<li><p>Next example shows how replace on every transcript normalized in current model:</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/procedural2.png" src="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/procedural2.png" />
+</div>
+<p>Here again we see similar pattern, where every iteration is checking particular word in transcript and replacing with a dictionary word.
+This is happening while we are reading data from database thereby making whole system slow and difficult to distribute it across different cores.</p>
+<ul class="simple">
+<li><p>Finally in this next example we see how currently model displays output, it is an excel snapshot with topic cluster numbers and words with weigths associated with it in each cluster:</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/procedural3.png" src="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/procedural3.png" />
+</div>
+<p></p>
+<p>Therefore with these design choices we were destined for a poor performing pipeline.</p>
+<p></p>
+</div>
+<div class="section" id="solution-design">
+<h1>Solution Design<a class="headerlink" href="#solution-design" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Architecture Overview</p></li>
+</ol>
+<p>The solution design follows the four prong approach.The first approach consists of the functional design pattern.
+The second utilizes power of parallel compute using dask. The
+third apply DAG workflow using luigi. Finally using power of django and t-SNE Corpus Visualization for model visualization</p>
+<p>Here is the bird’s eye view of full architecture:</p>
+<div class="figure align-default">
+<img alt="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/processflowarch.png" src="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/processflowarch.png" />
+</div>
+<p></p>
+<ul class="simple">
+<li><p>Why not cloud?</p></li>
+</ul>
+<p>One can argue why can’t we harness the power of cloud and use infinite processing power to solve this problem. The reason is we can’t
+use NPPI sensitive data on cloud, Daimler AG is very sensitive about how customer data is used and therefore moving this to cloud will
+be subjected to security internal audit review.</p>
+<ol class="arabic simple" start="2">
+<li><p>Existing Solution</p></li>
+</ol>
+<p>Our model focuses on specific business language that revolves around our business. There are many business specific terms that are
+used in our day to day operations, therefore the level of adjustments we can do in open source technology can not be done on products
+already available in market like SAS callminer, IBM watson call assistant. With these reasons we
+chose to develop in house solution.</p>
+<ol class="arabic simple" start="3">
+<li><p>Design Language</p></li>
+</ol>
+<p>To create this model we relied on some key concepts discussed in class like :</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Functional Programming</dt><dd><ul>
+<li><p>Allows for faster execution</p></li>
+<li><p>Easy to parallelize</p></li>
+<li><p>Use of map partition</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Here is an example from the project how functional programming allows us to
+modularize our code for preprep of data and how map partition can apply a function
+to various partition of data using dask.</p>
+<div class="figure align-default">
+<img alt="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/functional.png" src="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/functional.png" />
+</div>
+<p></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Decorators</dt><dd><ul>
+<li><p>Allows to minimize code writing</p></li>
+<li><p>Allows to add new functionality to exisiting one</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Here in the given example we are using luigi utils module’s require decorator
+to specify which task is required to be executed before a given class. It allows us
+skip defining require function in every task thereby making code easier to read
+without losing functionality.</p>
+<div class="figure align-default">
+<img alt="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/decorator.png" src="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/decorator.png" />
+</div>
+<p></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Descriptors</dt><dd><ul>
+<li><p>Allows us to manage attributes of different classes</p></li>
+<li><p>Allows us to get set or delete attributes of class if needed</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Here in the given example we see how luigi’s require decorator that we used is
+executed on the backend, under __call__ method it modifies task_that_requires by adding requires method.
+If only one task is required, this single task is returned. Otherwise, list of tasks is returned</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">requires</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">tasks_to_require</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">requires</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tasks_to_require</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;tasks_to_require cannot be empty&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">tasks_to_require</span> <span class="o">=</span> <span class="n">tasks_to_require</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_that_requires</span><span class="p">):</span>
+        <span class="n">task_that_requires</span> <span class="o">=</span> <span class="n">inherits</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks_to_require</span><span class="p">)(</span><span class="n">task_that_requires</span><span class="p">)</span>
+
+        <span class="c1"># Modify task_that_requires by adding requires method.</span>
+        <span class="c1"># If only one task is required, this single task is returned.</span>
+        <span class="c1"># Otherwise, list of tasks is returned</span>
+        <span class="k">def</span> <span class="nf">requires</span><span class="p">(</span><span class="n">_self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">_self</span><span class="o">.</span><span class="n">clone_parent</span><span class="p">()</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tasks_to_require</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">_self</span><span class="o">.</span><span class="n">clone_parents</span><span class="p">()</span>
+        <span class="n">task_that_requires</span><span class="o">.</span><span class="n">requires</span> <span class="o">=</span> <span class="n">requires</span>
+
+        <span class="k">return</span> <span class="n">task_that_requires</span>
+</pre></div>
+</div>
+<p></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Context Manager</dt><dd><ul>
+<li><p>Parallelize sklearns algorithm across all cores of machine</p></li>
+<li><p>Atomic write of parquet files</p></li>
+<li><p>Allows workers to compute in parallel the application of a function
+to many different arguments</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Here we are using context manager after creating local client with dask
+in backend. It uses workers to compute in parallel the application of dask function. The main functionality it
+brings in addition to using the raw multiprocessing are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>An optional progress meter (Needs bokeh preinstalled)</p></li>
+<li><p>Interruption of multiprocesses jobs with ctrl C</p></li>
+<li><p>Ability to use shared memory efficiently with worker processes for large numpy-based datastructures.</p></li>
+</ul>
+</div></blockquote>
+<div class="figure align-default">
+<img alt="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/contextmanager.png" src="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/contextmanager.png" />
+</div>
+<p></p>
+</div>
+<div class="section" id="solution-architecture">
+<h1>Solution Architecture<a class="headerlink" href="#solution-architecture" title="Permalink to this headline">¶</a></h1>
+<p>Given figure below displays a part of luigi workflow of solution architecture.</p>
+<div class="figure align-default">
+<img alt="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/solutionarch.png" src="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/solutionarch.png" />
+</div>
+<p>Here you will find task and their respective category. You will also find what each
+task is dependent to and what atomic target it generates.</p>
+<p>I won’t be able to go into details what each task exactly doing and how it is
+doing due to IP violation. But, there is some brief commentary about each of these
+processes under final_proj_model module. It is available under module index.</p>
+<p></p>
+</div>
+<div class="section" id="output">
+<h1>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h1>
+<p>Here is model output in an html file.
+We can see how easy is to interact with this model. We can scroll through the topics
+and filter words by weight by adjusting lambda slider at the top right.</p>
+<p>Each word is sorted by weight in selected cluster and also shows number occurrences throughout the
+corpus. It was made using pyldavis library.</p>
+<div class="figure align-default">
+<img alt="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/modeloutput.gif" src="https://raw.githubusercontent.com/nikhar1210/csci29_final_project/master/modeloutput.gif" />
+</div>
+<p></p>
+</div>
+<div class="section" id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h1>
+<p>The text analytics projects with big data are very vast, new and the challenging.
+We overcame some of that challenges discussed in solution design part. It explains that the performance and
+the progression details of the mentioned methods.
+Maximum number of projects about text analytics are on social media with sentiment analysis.
+To develop the data quality and the analysis results understanding the technique by which data can be preprocessed is essential.
+Datasets we are dealing with is very large and we had to process it with local machines.</p>
+<p>Hence, with these constraints we still managed to find a solution that can now process upto 1million
+call transcripts in one training cycle. By harnessing the power of parallel compute and DAG workflow
+we processed 6 billion words and analyzed 200k customer touchpoints with company.</p>
+<p>We can now run full pipeline for 1 month of call transcripts in less than 30 mins compared to
+2.5hrs previously. Plus we can now visualize model output and interact with it to get better insights.</p>
+</div>
+<div class="section" id="learning">
+<h1>Learning<a class="headerlink" href="#learning" title="Permalink to this headline">¶</a></h1>
+<p>We learned that how important it is to modularize your pipeline and execute each module with
+high efficiency using advanced python techniques. If these concepts were not introduced to me
+I would have thought this is the best I could do. But advanced python has allowed me to become
+better solution provider.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="final_proj_model.html">final_proj_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text_prep_func.html">text_prep_func module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="word_dic.html">word_dic module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modules.html" class="btn btn-neutral float-right" title="src" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Nikhar Shah.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
